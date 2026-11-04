@@ -1,0 +1,11 @@
+aws_region   = "us-east-1"
+project_name = "stockflow"
+environment  = "dev"
+instance_type = "t3.micro"
+
+# Substitua pelo ID de uma AMI válida na região escolhida.
+ami_id = "ami-xxxxxxxxxxxxxxxxx"
+
+# Substitua pelo seu IP público seguido de /32.
+# Exemplo: "203.0.113.10/32"
+allowed_cidr = "203.0.113.10/32"
