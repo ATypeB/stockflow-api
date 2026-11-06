@@ -85,4 +85,36 @@ describe("Product API", () => {
 
     expect(response.status).toBe(404);
   });
+
+  it("deve rejeitar dados inválidos ao atualizar um produto", async () => {
+    const response = await request(app)
+      .put("/products/1")
+      .send({
+        name: "",
+        description: "Atualização inválida",
+        quantity: -1,
+        price: 100
+      });
+
+    expect(response.status).toBe(400);
+  });
+
+  it("deve retornar 404 ao atualizar um produto inexistente", async () => {
+    const response = await request(app)
+      .put("/products/id-inexistente")
+      .send({
+        name: "Produto",
+        description: "Produto inexistente",
+        quantity: 1,
+        price: 10
+      });
+
+    expect(response.status).toBe(404);
+  });
+
+  it("deve retornar 404 ao excluir um produto inexistente", async () => {
+    const response = await request(app).delete("/products/id-inexistente");
+
+    expect(response.status).toBe(404);
+  });
 });
