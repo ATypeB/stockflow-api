@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "API REST para gerenciamento de produtos, desenvolvida como projeto prático de DevOps.",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",

@@ -1,4 +1,3 @@
-
 name: StockFlow CI
 
 on:
@@ -36,10 +35,10 @@ jobs:
       - name: Executar testes automatizados
         run: npm test
 
-
-
       - name: Configurar Terraform
         uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.17.1
 
       - name: Verificar formatação do Terraform
         run: terraform -chdir=infra fmt -check -recursive

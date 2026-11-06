@@ -28,6 +28,6 @@ variable "ami_id" {
 }
 
 variable "allowed_cidr" {
-  description = "Endereço IP autorizado a acessar a API"
+  description = "Bloco CIDR autorizado a acessar a API (ex.: 203.0.113.10/32)"
   type        = string
 }
