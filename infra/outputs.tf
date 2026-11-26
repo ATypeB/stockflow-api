@@ -8,6 +8,11 @@ output "ec2_public_ip" {
   value       = aws_instance.api.public_ip
 }
 
+output "api_url" {
+  description = "URL da API implantada"
+  value       = "http://${aws_instance.api.public_ip}:3000"
+}
+
 output "dynamodb_table_name" {
   description = "Nome da tabela DynamoDB"
   value       = aws_dynamodb_table.products.name

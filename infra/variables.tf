@@ -22,9 +22,10 @@ variable "instance_type" {
   default     = "t3.micro"
 }
 
-variable "ami_id" {
-  description = "ID da AMI do Amazon Linux 2023 na região escolhida"
+variable "instance_profile_name" {
+  description = "Instance profile pré-existente no AWS Academy (roles IAM não podem ser criadas no laboratório)"
   type        = string
+  default     = "LabInstanceProfile"
 }
 
 variable "allowed_cidr" {
