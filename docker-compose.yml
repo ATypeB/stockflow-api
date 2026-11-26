@@ -1,0 +1,19 @@
+# Orquestração local do StockFlow API com Docker Compose.
+# Sobe a API a partir do Dockerfile, com reinício automático e health check.
+# Uso: docker compose up --build
+services:
+  api:
+    build: .
+    image: stockflow-api:compose
+    container_name: stockflow-api-compose
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 3s
+      start_period: 5s
+      retries: 3
