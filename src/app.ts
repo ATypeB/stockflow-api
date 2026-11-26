@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.get("/", (_req, res) => {
   res.status(200).json({
-    message: "StockFlow API está funcionando!"
+    message: "StockFlow API v2: entregue via CD!"
   });
 });
 
